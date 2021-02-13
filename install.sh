@@ -22,8 +22,9 @@ if [ exists_file ~/.vimrc ]
 		sudo rm -f ~/.vimrc
 		cp .vimrc ~/.
 		echo "replaced existing .vimrc ...\n"
+	else
+		echo "skipped existing .vimrc ...\n"
 	fi
-	echo "skipped existing .vimrc ...\n"
 fi
 
 if [ exists_dir ~/.vim ]
@@ -37,6 +38,8 @@ if [ exists_dir ~/.vim ]
 		mkdir ~/.vim/colors/base16
 		cp .vim/colors/base16/*.vim ~/.vim/colors/base16
 		echo "replaced existing ~/.vim ...\n"
+	else
+		echo "skipped existing ~/.vim ...\n"
 	fi
-	echo "skipped existing ~/.vim ...\n"
 fi
+
