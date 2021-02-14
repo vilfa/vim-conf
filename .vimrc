@@ -1,103 +1,57 @@
-" Don't try to be vi compatible
-set nocompatible
+set nocompatible				" Don't try to be vi compatible
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+set encoding=utf-8				" Encoding
+set number						" Show line numbers
+set linebreak					" Break lines at word (requires Wrap lines)
+set showbreak=+++ 				" Wrap-broken line prefix
+set textwidth=150				" Line wrap (number of cols)
+set showmatch					" Highlight matching brace
+set spell						" Enable spell-checking
+set visualbell					" Use visual bell (no beeping)
 
-" Plugins
-" <put plugins here>
+set columns=140					" Set window width
+set lines=40					" Set window height
+ 
+set hlsearch					" Highlight all search results
+set smartcase					" Enable smart-case search
+set ignorecase					" Always case-insensitive
+set incsearch					" Searches for strings incrementally
+ 
+set autoindent					" Auto-indent new lines
+set cindent						" Use 'C' style program indenting
+set shiftwidth=4				" Number of auto-indent spaces
+set smartindent					" Enable smart-indent
+set smarttab					" Enable smart-tabs
+set softtabstop=4				" Number of spaces per Tab
+ 
+set ruler						" Show row and column ruler information
+"set showtabline=2				" Show top tab bar
+ 
+syntax on						" Turn on syntax highlighting
+set autochdir					" Change working directory to open buffer
+ 
+set undolevels=1000				" Number of undo levels
+set backspace=indent,eol,start	" Backspace behaviour
 
-" Turn on syntax highlighting
-syntax on
-
-" For plugins to load correctly
-filetype plugin indent on
-
-" Security
-set modelines=0
-
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
-
-" Encoding
-set encoding=utf-8
-
-" Whitespace
-set wrap
-set textwidth=79
-set tabstop=4
-set shiftwidth=4
-set noshiftround
-set noexpandtab
-set autoindent
-set formatoptions=tcqrn1
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-
-" Allow hidden buffers
-set hidden
-
-" Rendering
-set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
-set showmode
-set showcmd
-
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
+set hidden						" Allow hidden buffers
+set ttyfast 					" Rendering
+set laststatus=2 				" Status bar
+set showmode					" Last line
+set showcmd						" Last line
+set listchars=tab:▸\ ,eol:¬ 	" Visualize tabs and newlines
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
-" Textmate holdouts
-
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
+" Remap leader key
+let leader=","
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-" Color scheme (terminal)
-set background=dark
-
+" Set theme
 if has("gui_running")
 	color base16-onedark
 else
 	colorscheme base16-onedark
 endif
-
-set columns=150
-set lines=50
-

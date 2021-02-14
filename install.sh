@@ -1,45 +1,51 @@
 #!/bin/bash
- 
-exists_file() {
-	if [ -f $1 ]
-		echo true
-	fi
-	echo false
-}
 
-exists_dir() {
-	if [ -d $1 ]
-		echo true
-	fi
-	echo false
-}
-
-if [ exists_file ~/.vimrc ]
-	echo ".vimrc already exists. replace (y/n)? "
+if [ -f $HOME/.vimrc ]
+then
+	echo ".vimrc already exists. replace (y/n)?"
 	read replace
-	echo "\n"
-	if [ replace == "y" || replace == "Y" || replace == "yes" ]
-		sudo rm -f ~/.vimrc
-		cp .vimrc ~/.
+	if [ "$replace" == "y" ] || [ "$replace" == "Y" ] || [ "$replace" == "yes" ] 
+	then
+		rm -f $HOME/.vimrc
+		cp .vimrc $HOME/.
 		echo "replaced existing .vimrc ...\n"
 	else
 		echo "skipped existing .vimrc ...\n"
 	fi
-fi
-
-if [ exists_dir ~/.vim ]
-	echo ".vim dir already exists. replace (y/n)? "
-	read replace
-	echo "\n"
-	if [ replace == "y" || replace == "Y" || replace == "yes" ]
-		sudo rm -rf ~/.vim
-		mkdir ~/.vim
-		mkdir ~/.vim/colors
-		mkdir ~/.vim/colors/base16
-		cp .vim/colors/base16/*.vim ~/.vim/colors/base16
-		echo "replaced existing ~/.vim ...\n"
+else
+	echo "no existing .vimrc. create (y/n)?"
+	read create
+	if [ "$create" == "y" ] || [ "$create" == "Y" ] || [ "$create" == "yes" ]
+	then
+		cp .vimrc $HOME/.
+		echo "created .vimrc ..."
 	else
-		echo "skipped existing ~/.vim ...\n"
+		echo "skipped ..."
 	fi
 fi
 
+if [ -d $HOME/.vim ]
+then
+	echo ".vim dir already exists. replace (y/n)?"
+	read replace
+	if [ "$replace" == "y" ] || [ "$replace" == "Y" ] || [ "$replace" == "yes" ] 
+	then
+		rm -rf $HOME/.vim
+		mkdir $HOME/.vim && mkdir $HOME/.vim/colors
+		cp .vim/colors/base16/*.vim $HOME/.vim/colors
+		echo "replaced existing ~/.vim ..."
+	else
+		echo "skipped existing ~/.vim ..."
+	fi
+else
+	echo "no existing .vim dir. create (y/n)?"
+	read create
+	if [ "$create" == "y" ] || [ "$create" == "Y" ] || [ "$create" == "yes" ]
+	then
+		mkdir $HOME/.vim && mkdir $HOME/.vim/colors
+		cp .vim/colors/base16/*.vim $HOME/.vim/colors
+		echo "created .vim dir ..."
+	else
+		echo "skipped ..."
+	fi
+fi
