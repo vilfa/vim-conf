@@ -7,7 +7,7 @@ then
 	if [ "$replace" == "y" ] || [ "$replace" == "Y" ] || [ "$replace" == "yes" ] 
 	then
 		rm -f $HOME/.vimrc
-		cp .vimrc $HOME/.
+		cp .vimrc $HOME
 		echo "replaced existing .vimrc ...\n"
 	else
 		echo "skipped existing .vimrc ...\n"
@@ -17,7 +17,7 @@ else
 	read create
 	if [ "$create" == "y" ] || [ "$create" == "Y" ] || [ "$create" == "yes" ]
 	then
-		cp .vimrc $HOME/.
+		cp .vimrc $HOME
 		echo "created .vimrc ..."
 	else
 		echo "skipped ..."
