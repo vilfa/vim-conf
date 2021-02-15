@@ -52,6 +52,17 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " Set theme
 if has("gui_running")
 	color base16-onedark
+	set columns=999
+	set lines=999
 else
 	colorscheme base16-onedark
 endif
+
+" Remember to first install YouCompleteMe and ycmd
+" from the AUR package vim-youcompleteme-git
+"
+" Setup YouCompleteMe plugin code completion
+" Setup ycmd code completion server
+let g:ycm_global_ycm_extra_conf='~/.vim/ycm_global_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
+let g:ycm_extra_conf_globlist=['~/dev/*','!~/*']
