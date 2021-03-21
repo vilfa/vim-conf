@@ -52,11 +52,11 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " Set theme and optimize for dark colors
 set background=dark
 if has("gui_running")
-	color base16-gruvbox
+	color base16-gruvbox-dark-medium
 	set columns=999
 	set lines=999
 else
-	colorscheme base16-gruvbox
+	colorscheme base16-gruvbox-dark-medium
 	set columns=999
 	set lines=999
 endif
