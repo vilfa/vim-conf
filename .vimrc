@@ -9,8 +9,8 @@ set showmatch					" Highlight matching brace
 set spell					" Enable spell-checking
 set visualbell					" Use visual bell (no beeping)
 
-set columns=140					" Set window width
-set lines=40					" Set window height
+"set columns=140					" Set window width
+"set lines=40					" Set window height
  
 set hlsearch					" Highlight all search results
 set smartcase					" Enable smart-case search
@@ -49,13 +49,16 @@ vnoremap <F1> :set invfullscreen<CR>
 let leader=","
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-" Set theme
+" Set theme and optimize for dark colors
+set background=dark
 if has("gui_running")
-	color base16-onedark
+	color base16-gruvbox
 	set columns=999
 	set lines=999
 else
-	colorscheme base16-onedark
+	colorscheme base16-gruvbox
+	set columns=999
+	set lines=999
 endif
 
 " Remember to first install YouCompleteMe and ycmd
