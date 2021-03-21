@@ -8,9 +8,9 @@ then
 	then
 		rm -f $HOME/.vimrc
 		cp .vimrc $HOME
-		echo "replaced existing .vimrc ...\n"
+		echo "replaced existing .vimrc ..."
 	else
-		echo "skipped existing .vimrc ...\n"
+		echo "skipped existing .vimrc ..."
 	fi
 else
 	echo "no existing .vimrc. create (y/n)?"

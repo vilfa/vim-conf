@@ -12,9 +12,9 @@ then
     then
 	rm -f /root/.vimrc
 	cp .vimrc /root
-	echo "replaced existing root user .vimrc ...\n"
+	echo "replaced existing root user .vimrc ..."
     else
-	echo "skipped existing root user .vimrc ...\n"
+	echo "skipped existing root user .vimrc ..."
     fi
 else
     echo "no existing root user .vimrc. create (y/n)?"
