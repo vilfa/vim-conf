@@ -9,7 +9,7 @@ set showmatch					" Highlight matching brace
 set spell					" Enable spell-checking
 set visualbell					" Use visual bell (no beeping)
 
-"set columns=140					" Set window width
+"set columns=140				" Set window width
 "set lines=40					" Set window height
  
 set hlsearch					" Highlight all search results
@@ -57,8 +57,8 @@ if has("gui_running")
 	set lines=999
 else
 	colorscheme base16-gruvbox-dark-medium
-	set columns=999
-	set lines=999
+"	set columns=999
+"	set lines=999
 endif
 
 " Remember to first install YouCompleteMe and ycmd
