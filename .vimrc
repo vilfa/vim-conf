@@ -9,9 +9,6 @@ set showmatch					" Highlight matching brace
 set spell					" Enable spell-checking
 set visualbell					" Use visual bell (no beeping)
 
-"set columns=140				" Set window width
-"set lines=40					" Set window height
- 
 set hlsearch					" Highlight all search results
 set smartcase					" Enable smart-case search
 set ignorecase					" Always case-insensitive
@@ -25,7 +22,6 @@ set smarttab					" Enable smart-tabs
 set softtabstop=4				" Number of spaces per Tab
  
 set ruler					" Show row and column ruler information
-"set showtabline=2				" Show top tab bar
  
 syntax on					" Turn on syntax highlighting
 set autochdir					" Change working directory to open buffer
@@ -57,15 +53,10 @@ if has("gui_running")
 	set lines=999
 else
 	colorscheme base16-gruvbox-dark-medium
-"	set columns=999
-"	set lines=999
 endif
 
-" Remember to first install YouCompleteMe and ycmd
-" from the AUR package vim-youcompleteme-git
-"
-" Setup YouCompleteMe plugin code completion
-" Setup ycmd code completion server
+" Make sure to install vim-youcompleteme-git from the AUR.
+" Setup the path to the global config file.
 let g:ycm_global_ycm_extra_conf='~/.vim/ycm_global_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:ycm_extra_conf_globlist=['~/dev/*','!~/*']
