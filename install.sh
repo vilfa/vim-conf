@@ -31,8 +31,7 @@ then
 	if [ "$replace" == "y" ] || [ "$replace" == "Y" ] || [ "$replace" == "yes" ] 
 	then
 		rm -rf $HOME/.vim
-		mkdir $HOME/.vim && mkdir $HOME/.vim/colors
-		cp .vim/colors/base16/*.vim $HOME/.vim/colors
+		mkdir -p $HOME/.vim/colors && cp .vim/colors/base16/*.vim $HOME/.vim/colors
 		echo "replaced existing ~/.vim ..."
 	else
 		echo "skipped existing ~/.vim ..."
@@ -42,8 +41,7 @@ else
 	read create
 	if [ "$create" == "y" ] || [ "$create" == "Y" ] || [ "$create" == "yes" ]
 	then
-		mkdir $HOME/.vim && mkdir $HOME/.vim/colors
-		cp .vim/colors/base16/*.vim $HOME/.vim/colors
+		mkdir -p $HOME/.vim/colors && cp .vim/colors/base16/*.vim $HOME/.vim/colors
 		echo "created .vim dir ..."
 	else
 		echo "skipped ..."

@@ -35,8 +35,7 @@ then
     if [ "$replace" == "y" ] || [ "$replace" == "Y" ] || [ "$replace" == "yes" ] 
     then
 	rm -rf /root/.vim
-	mkdir /root/.vim && mkdir /root/.vim/colors
-	cp .vim/colors/base16/*.vim /root/.vim/colors
+	mkdir -p /root/.vim/colors && cp .vim/colors/base16/*.vim /root/.vim/colors
 	echo "replaced existing root user ~/.vim ..."
     else
 	echo "skipped existing root user ~/.vim ..."
@@ -46,8 +45,7 @@ else
     read create
     if [ "$create" == "y" ] || [ "$create" == "Y" ] || [ "$create" == "yes" ]
     then
-	mkdir /root/.vim && mkdir /root/.vim/colors
-	cp .vim/colors/base16/*.vim /root/.vim/colors
+	mkdir -p /root/.vim/colors && cp .vim/colors/base16/*.vim /root/.vim/colors
 	echo "created root user .vim dir ..."
     else
 	echo "skipped ..."
