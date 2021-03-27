@@ -1,5 +1,8 @@
-set nocompatible				" Don't try to be vi compatible
+"""""""""""
+" General "
+"""""""""""
 
+set nocompatible				" Don't try to be vi compatible
 set encoding=utf-8				" Encoding
 set number					" Show line numbers
 set linebreak					" Break lines at word (requires Wrap lines)
@@ -8,27 +11,21 @@ set textwidth=150				" Line wrap (number of cols)
 set showmatch					" Highlight matching brace
 set spell					" Enable spell-checking
 set visualbell					" Use visual bell (no beeping)
-
 set hlsearch					" Highlight all search results
 set smartcase					" Enable smart-case search
 set ignorecase					" Always case-insensitive
 set incsearch					" Searches for strings incrementally
- 
 set autoindent					" Auto-indent new lines
 set cindent					" Use 'C' style program indenting
 set shiftwidth=4				" Number of auto-indent spaces
 set smartindent					" Enable smart-indent
 set smarttab					" Enable smart-tabs
 set softtabstop=4				" Number of spaces per Tab
- 
 set ruler					" Show row and column ruler information
- 
 syntax on					" Turn on syntax highlighting
 set autochdir					" Change working directory to open buffer
- 
 set undolevels=1000				" Number of undo levels
 set backspace=indent,eol,start			" Backspace behaviour
-
 set hidden					" Allow hidden buffers
 set ttyfast 					" Rendering
 set laststatus=2 				" Status bar
@@ -36,14 +33,9 @@ set showmode					" Last line
 set showcmd					" Last line
 set listchars=tab:▸\ ,eol:¬			" Visualize tabs and newlines
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
-" Remap leader key
-let leader=","
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+""""""""""""""
+" Appearance "
+""""""""""""""
 
 " Set theme and optimize for dark colors
 set background=dark
@@ -55,7 +47,42 @@ else
 	colorscheme base16-gruvbox-dark-medium
 endif
 
-" Make sure to install vim-youcompleteme-git from the AUR.
+""""""""
+" Keys "
+""""""""
+
+" Set key mappings
+let mapleader=","
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+"""""""""""
+" Plugins "
+"""""""""""
+
+"" NERDTree
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+"" YouCompleteMe
+
 " Setup the path to the global config file.
 let g:ycm_global_ycm_extra_conf='~/.vim/ycm_global_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
