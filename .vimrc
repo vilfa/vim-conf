@@ -4,34 +4,32 @@
 
 set nocompatible				" Don't try to be vi compatible
 set encoding=utf-8				" Encoding
-set number					" Show line numbers
+set number						" Show line numbers
 set linebreak					" Break lines at word (requires Wrap lines)
 set showbreak=+++ 				" Wrap-broken line prefix
 set textwidth=150				" Line wrap (number of cols)
 set showmatch					" Highlight matching brace
-set spell					" Enable spell-checking
+set spell						" Enable spell-checking
 set visualbell					" Use visual bell (no beeping)
 set hlsearch					" Highlight all search results
 set smartcase					" Enable smart-case search
 set ignorecase					" Always case-insensitive
 set incsearch					" Searches for strings incrementally
 set autoindent					" Auto-indent new lines
-set cindent					" Use 'C' style program indenting
 set shiftwidth=4				" Number of auto-indent spaces
-set smartindent					" Enable smart-indent
-set smarttab					" Enable smart-tabs
-set softtabstop=4				" Number of spaces per Tab
-set ruler					" Show row and column ruler information
-syntax on					" Turn on syntax highlighting
+set tabstop=4					" Number of spaces per Tab
+set noexpandtab					" Don't expand tabs
+set ruler						" Show row and column ruler information
 set autochdir					" Change working directory to open buffer
 set undolevels=1000				" Number of undo levels
-set backspace=indent,eol,start			" Backspace behaviour
-set hidden					" Allow hidden buffers
+set backspace=indent,eol,start	" Backspace behaviour
+set hidden						" Allow hidden buffers
 set ttyfast 					" Rendering
 set laststatus=2 				" Status bar
 set showmode					" Last line
-set showcmd					" Last line
-set listchars=tab:▸\ ,eol:¬			" Visualize tabs and newlines
+set showcmd						" Last line
+set listchars=tab:▸\ ,eol:¬		" Visualize tabs and newlines
+syntax on						" Turn on syntax highlighting
 
 """"""""""""""
 " Appearance "
