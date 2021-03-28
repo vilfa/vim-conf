@@ -51,14 +51,17 @@ endif
 " Keys "
 """"""""
 
-" Set key mappings
+"" Set key mappings
 let mapleader=","
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap <leader>h :split<CR>
+nnoremap <leader>v :vsplit<CR>
 
-"""""""""""
+""""""""""
 " Plugins "
 """""""""""
 
