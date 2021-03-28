@@ -19,6 +19,7 @@ set autoindent					" Auto-indent new lines
 set shiftwidth=4				" Number of auto-indent spaces
 set tabstop=4					" Number of spaces per Tab
 set noexpandtab					" Don't expand tabs
+set smarttab					" Use smart tabs
 set ruler						" Show row and column ruler information
 set autochdir					" Change working directory to open buffer
 set undolevels=1000				" Number of undo levels
