@@ -59,6 +59,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <leader>b :ls<CR>:b<Space>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>t :term<CR>
 
 """"""""""
 " Plugins "
